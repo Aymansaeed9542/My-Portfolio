@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../Hero/Hero";
 import Section from "../Section/Section";
-import About from "../About/About";
+import About from "../about/About";
 import Projects from "../Projects/Projects";
 import Contact from "../Contact/Contact";
 
