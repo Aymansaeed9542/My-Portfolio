@@ -2,34 +2,38 @@ import React from "react";
 import { ExternalLink, Github, Code2, Globe } from "lucide-react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import ScrollReveal from "../ScrollReveal/ScrollReveal";
+import image1 from '../../assets/image.png';
+import image2 from '../../assets/image2.png';
+import image3 from '../../assets/image3.png';
+import image4 from '../../assets/image4.png';
 
 export default function Projects() {
     const [ref, isVisible] = useScrollAnimation(0.1);
     
     const projects = [
         {
-            title: "E-Commerce Platform",
-            description: "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.",
-            technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-            image: "https://via.placeholder.com/400x250/1f2937/ffffff?text=E-Commerce",
+            title: "Social Media App",
+            description: "A full-stack social media application built with React, Node.js, and MongoDB. Features include user authentication, real-time chat, and media sharing.",
+            technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
+            image: image1,
             github: "#",
             live: "#",
             featured: true
         },
         {
-            title: "Task Management App",
-            description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+            title: "DevMatch Programmer",
+            description: "A collaborative platform for developers to find and match with peers for coding projects, featuring real-time chat and project management tools.",
             technologies: ["Vue.js", "Firebase", "Vuex", "Tailwind CSS"],
-            image: "https://via.placeholder.com/400x250/1f2937/ffffff?text=Task+App",
+            image: image2,
             github: "#",
             live: "#",
             featured: true
         },
         {
-            title: "Weather Dashboard",
-            description: "A beautiful weather application that displays current weather, forecasts, and interactive maps using OpenWeatherMap API.",
+            title: "Paio Cars Company",
+            description: "A platform for users to buy and sell cars, featuring advanced search filters, user reviews, and a seamless checkout process.",
             technologies: ["JavaScript", "HTML5", "CSS3", "Chart.js"],
-            image: "https://via.placeholder.com/400x250/1f2937/ffffff?text=Weather+App",
+            image: image3,
             github: "#",
             live: "#",
             featured: false
@@ -38,7 +42,7 @@ export default function Projects() {
             title: "Portfolio Website",
             description: "A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and interactive elements.",
             technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
-            image: "https://via.placeholder.com/400x250/1f2937/ffffff?text=Portfolio",
+            image: image4,
             github: "#",
             live: "#",
             featured: false

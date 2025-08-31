@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Facebook } from "lucide-react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import ScrollReveal from "../ScrollReveal/ScrollReveal";
 
@@ -29,27 +29,27 @@ export default function Contact() {
         {
             icon: <Mail size={24} />,
             title: "Email",
-            value: "ayman.saeed@example.com",
-            link: "mailto:ayman.saeed@example.com"
+            value: "aymsaeed9542@gmail.com",
+            link: "aymsaeed9542@gmail.com"
         },
         {
             icon: <Phone size={24} />,
             title: "Phone",
-            value: "+1 (555) 123-4567",
-            link: "tel:+15551234567"
+            value: "+201147252714",
+            link: "tel:+201147252714"
         },
         {
             icon: <MapPin size={24} />,
             title: "Location",
-            value: "Available for remote work",
+            value: "Alexandria, Egypt",
             link: "#"
         }
     ];
 
     const socialLinks = [
-        { icon: <Github size={20} />, href: "#", label: "GitHub" },
-        { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
-        { icon: <Twitter size={20} />, href: "#", label: "Twitter" }
+        { icon: <Github size={20} />, href: "https://github.com/Aymansaeed9542", label: "GitHub" },
+        { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/ayman-khodier", label: "LinkedIn" },
+        { icon: <Facebook size={20} />, href: "https://www.facebook.com/share/16nZjFEPEo/", label: "Facebook" }
     ];
 
     return (

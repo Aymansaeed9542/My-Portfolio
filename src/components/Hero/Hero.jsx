@@ -39,11 +39,11 @@ export default function Hero() {
     return (
         <div ref={ref} className="text-center mb-20 container mx-auto px-4">
             <div className={`transition-all duration-1000 ${showName ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <h1 className="text-5xl md:text-7xl font-bold mb-6 relative">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6 relative text-white">
                     {showName && (
                         <SplitText
                             text="Ayman Saeed"
-                            className="bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text  animate-gradient"
+                            className="bg-gradient-to-r from-white via-purple-400 to-blue-400 bg-clip-text animate-gradient"
                             delay={80}
                             duration={1}
                             ease="power3.out"
@@ -64,7 +64,7 @@ export default function Hero() {
                     baseRotation={2}
                     blurStrength={6}
                     containerClassName="text-center"
-                    textClassName="text-2xl md:text-3xl font-semibold mb-6 text-gray-300"
+                    textClassName=" text-xl md:text-3xl font-semibold mb-6 text-gray-300"
                 >
                     Computer Science Student & Software Developer
                 </ScrollReveal>

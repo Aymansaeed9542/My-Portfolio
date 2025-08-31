@@ -16,6 +16,21 @@ export default function About() {
         { name: "Tools & Technologies", icon: <User size={24} />, description: "Git, Docker, AWS, Vercel, Netlify" },
     ];
 
+    const technologies = [
+        { name: "React", icon: <Code size={32} className="text-blue-400" /> },
+        { name: "Vue.js", icon: <Code size={32} className="text-green-400" /> },
+        { name: "TypeScript", icon: <Code size={32} className="text-blue-600" /> },
+        { name: "Node.js", icon: <Code size={32} className="text-green-500" /> },
+        { name: "Express.js", icon: <Code size={32} className="text-gray-400" /> },
+        { name: "MongoDB", icon: <Database size={32} className="text-green-600" /> },
+        { name: "MySQL", icon: <Database size={32} className="text-blue-500" /> },
+        { name: "Git", icon: <Smartphone size={32} className="text-orange-600" /> },
+        { name: "Docker", icon: <Smartphone size={32} className="text-blue-500" /> },
+        { name: "AWS", icon: <Smartphone size={32} className="text-orange-500" /> },
+        { name: "Vercel", icon: <Smartphone size={32} className="text-black" /> },
+        { name: "Netlify", icon: <Smartphone size={32} className="text-green-500" /> },
+    ];
+
     useEffect(() => {
         // Show image first after 500ms
         const imageTimer = setTimeout(() => {
@@ -51,7 +66,7 @@ export default function About() {
                         containerClassName="text-center"
                         textClassName="text-2xl font-bold text-white mb-4"
                     >
-                        About Me
+                        
                     </ScrollReveal>
                     <p className="text-gray-400 leading-relaxed mb-6">
                         I'm <span className="text-purple-400 font-semibold">Ayman Saeed</span>, a passionate Computer Science student and Software Developer with expertise in both frontend and backend development. I love creating beautiful, functional, and user-friendly web applications that solve real-world problems.
@@ -104,6 +119,47 @@ export default function About() {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                {/* Technology Logos Section */}
+                <div className={`mt-12 transition-all duration-1000 delay-1000 ${showSkills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <ScrollReveal
+                        baseOpacity={0}
+                        enableBlur={true}
+                        baseRotation={2}
+                        blurStrength={6}
+                        containerClassName="text-center"
+                        textClassName="text-xl font-bold text-white mb-8"
+                    >
+                        Technologies I Work With
+                    </ScrollReveal>
+                    <div className="relative overflow-hidden rounded-xl bg-white/5 border border-white/10 p-8">
+                        <div className="flex animate-scroll space-x-8">
+                            {technologies.map((tech, index) => (
+                                <div
+                                    key={`${tech.name}-${index}`}
+                                    className="flex-shrink-0 flex flex-col items-center p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all duration-300 group"
+                                >
+                                    <div className="mb-2 group-hover:scale-110 transition-transform duration-300">
+                                        {tech.icon}
+                                    </div>
+                                    <span className="text-gray-300 text-sm text-center">{tech.name}</span>
+                                </div>
+                            ))}
+                            {/* Duplicate items for seamless loop */}
+                            {technologies.map((tech, index) => (
+                                <div
+                                    key={`${tech.name}-duplicate-${index}`}
+                                    className="flex-shrink-0 flex flex-col items-center p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all duration-300 group"
+                                >
+                                    <div className="mb-2 group-hover:scale-110 transition-transform duration-300">
+                                        {tech.icon}
+                                    </div>
+                                    <span className="text-gray-300 text-sm text-center">{tech.name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
