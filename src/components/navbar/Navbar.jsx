@@ -60,7 +60,7 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
-        { name: "Home", href: "#home", icon: <Sparkles size={16} /> },
+        { name: "Home", href: "#navbar", icon: <Sparkles size={16} /> },
         { name: "About", href: "#about", icon: <User size={16} /> },
         { name: "Projects", href: "#projects", icon: <Code2 size={16} /> },
         { name: "Contact", href: "#contact", icon: <Mail size={16} /> },
@@ -108,7 +108,7 @@ export default function Navbar() {
                                 </div>
                                 <span className="relative">
                                     <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                                        ReactBits
+                                        &lt;AYMAN/&gt;
                                     </span>
                                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 group-hover:w-full transition-all duration-500"></span>
                                 </span>

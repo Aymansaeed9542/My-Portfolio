@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import ScrollReveal from "../ScrollReveal/ScrollReveal";
 
 export default function Contact() {
     const [ref, isVisible] = useScrollAnimation(0.1);
@@ -54,7 +55,16 @@ export default function Contact() {
     return (
         <div ref={ref} className="space-y-8">
             <div className={`text-center mb-12 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <h3 className="text-2xl font-bold text-white mb-4">Get In Touch</h3>
+                <ScrollReveal
+                    baseOpacity={0}
+                    enableBlur={true}
+                    baseRotation={3}
+                    blurStrength={8}
+                    containerClassName="text-center"
+                    textClassName="text-2xl font-bold text-white mb-4"
+                >
+                    Get In Touch
+                </ScrollReveal>
                 <p className="text-gray-400 max-w-2xl mx-auto">
                     I'm always interested in hearing about new projects and opportunities. 
                     Feel free to reach out if you'd like to connect or collaborate!
@@ -64,7 +74,16 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-12">
                 {/* Contact Form */}
                 <div className={`space-y-6 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                    <h4 className="text-xl font-bold text-white mb-6">Send a Message</h4>
+                    <ScrollReveal
+                        baseOpacity={0}
+                        enableBlur={true}
+                        baseRotation={2}
+                        blurStrength={6}
+                        containerClassName="text-center"
+                        textClassName="text-xl font-bold text-white mb-6"
+                    >
+                        Send a Message
+                    </ScrollReveal>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="grid md:grid-cols-2 gap-4">
                             <div>

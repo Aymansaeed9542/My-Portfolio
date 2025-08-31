@@ -6,7 +6,7 @@ import Styles from "../Styles/Styles";
 
 export default function Home() {
     return (
-        <div className="min-h-screen bg-black relative overflow-hidden">
+        <div className="min-h-screen bg-black relative overflow-hidden ">
             <Background />
             <Navbar />
             <Content />

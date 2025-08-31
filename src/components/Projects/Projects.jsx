@@ -1,6 +1,7 @@
 import React from "react";
 import { ExternalLink, Github, Code2, Globe } from "lucide-react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import ScrollReveal from "../ScrollReveal/ScrollReveal";
 
 export default function Projects() {
     const [ref, isVisible] = useScrollAnimation(0.1);
@@ -47,7 +48,16 @@ export default function Projects() {
     return (
         <div ref={ref} className="space-y-8">
             <div className={`text-center mb-12 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <h3 className="text-2xl font-bold text-white mb-4">Featured Projects</h3>
+                <ScrollReveal
+                    baseOpacity={0}
+                    enableBlur={true}
+                    baseRotation={3}
+                    blurStrength={8}
+                    containerClassName="text-center"
+                    textClassName="text-2xl font-bold text-white mb-4"
+                >
+                    Featured Projects
+                </ScrollReveal>
                 <p className="text-gray-400 max-w-2xl mx-auto">
                     Here are some of my recent projects that showcase my skills in web development, 
                     design, and problem-solving.

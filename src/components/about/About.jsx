@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { User, Code, Database, Smartphone } from "lucide-react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import ScrollReveal from "../ScrollReveal/ScrollReveal";
 
 export default function About() {
     const [ref, isVisible] = useScrollAnimation(0.1);
@@ -42,7 +43,16 @@ export default function About() {
         <div ref={ref} className="space-y-8">
             <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className={`transition-all duration-1000 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                    <h3 className="text-2xl font-bold text-white mb-4">About Me</h3>
+                    <ScrollReveal
+                        baseOpacity={0}
+                        enableBlur={true}
+                        baseRotation={3}
+                        blurStrength={8}
+                        containerClassName="text-center"
+                        textClassName="text-2xl font-bold text-white mb-4"
+                    >
+                        About Me
+                    </ScrollReveal>
                     <p className="text-gray-400 leading-relaxed mb-6">
                         I'm <span className="text-purple-400 font-semibold">Ayman Saeed</span>, a passionate Computer Science student and Software Developer with expertise in both frontend and backend development. I love creating beautiful, functional, and user-friendly web applications that solve real-world problems.
                     </p>
@@ -64,7 +74,16 @@ export default function About() {
             </div>
 
             <div className={`transition-all duration-1000 ${showSkills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <h3 className="text-2xl font-bold text-white mb-6">Skills & Expertise</h3>
+                <ScrollReveal
+                    baseOpacity={0}
+                    enableBlur={true}
+                    baseRotation={3}
+                    blurStrength={8}
+                    containerClassName="text-center"
+                    textClassName="text-2xl font-bold text-white mb-6"
+                >
+                    Skills & Expertise
+                </ScrollReveal>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {skills.map((skill, index) => (
                         <div

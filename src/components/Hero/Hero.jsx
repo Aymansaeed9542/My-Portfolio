@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import SplitText from "../SplitText/SplitText";
+import ScrollReveal from "../ScrollReveal/ScrollReveal";
 
 export default function Hero() {
     const [ref, isVisible] = useScrollAnimation(0.1);
@@ -36,7 +37,7 @@ export default function Hero() {
     };
 
     return (
-        <div ref={ref} className="text-center mb-20">
+        <div ref={ref} className="text-center mb-20 container mx-auto px-4">
             <div className={`transition-all duration-1000 ${showName ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <h1 className="text-5xl md:text-7xl font-bold mb-6 relative">
                     {showName && (
@@ -57,9 +58,16 @@ export default function Hero() {
             </div>
             
             <div className={`transition-all duration-1000 ${showTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-300">
+                <ScrollReveal
+                    baseOpacity={0}
+                    enableBlur={true}
+                    baseRotation={2}
+                    blurStrength={6}
+                    containerClassName="text-center"
+                    textClassName="text-2xl md:text-3xl font-semibold mb-6 text-gray-300"
+                >
                     Computer Science Student & Software Developer
-                </h2>
+                </ScrollReveal>
             </div>
             
             <div className={`transition-all duration-1000 ${showDescription ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
