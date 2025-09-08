@@ -78,9 +78,17 @@ export default function About() {
             </div>
 
             <div className={`transition-all duration-1000 ${showSkills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <h2 className="text-2xl font-bold text-white mb-6 text-center">
-                    Skills & Expertise
-                </h2>
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 relative">
+                        <span className="bg-gradient-to-r from-white via-purple-400 to-blue-400 bg-clip-text text-transparent">
+                            Skills & Expertise
+                        </span>
+                        {/* Decorative line */}
+                        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
+                        {/* Glow effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/15 to-blue-500/15 blur-lg scale-105 opacity-60"></div>
+                    </h2>
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {skills.map((skill, index) => (
                         <div
@@ -105,9 +113,17 @@ export default function About() {
 
                 {/* Technology Logos Section */}
                 <div className={`mt-12 transition-all duration-1000 delay-1000 ${showSkills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                    <h3 className="text-xl font-bold text-white mb-8 text-center">
-                        Technologies I Work With
-                    </h3>
+                    <div className="text-center mb-8">
+                        <h3 className="text-2xl md:text-3xl font-bold mb-4 relative">
+                            <span className="bg-gradient-to-r from-white via-purple-400 to-blue-400 bg-clip-text text-transparent">
+                                Technologies I Work With
+                            </span>
+                            {/* Decorative line */}
+                            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
+                            {/* Glow effect */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-md scale-105 opacity-50"></div>
+                        </h3>
+                    </div>
                     <div className="relative overflow-hidden rounded-xl bg-white/5 border border-white/10 p-8">
                         <div className="flex animate-scroll space-x-8">
                             {technologies.map((tech, index) => (
