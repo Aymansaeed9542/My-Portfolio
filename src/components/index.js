@@ -9,6 +9,6 @@ export { default as Styles } from './Styles/Styles';
 export { default as SplitText } from './SplitText/SplitText';
 
 // Page-specific components
-export { default as About } from './About/About';
+export { default as About } from './about/About';
 export { default as Projects } from './Projects/Projects';
 export { default as Contact } from './Contact/Contact';
