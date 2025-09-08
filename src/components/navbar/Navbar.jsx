@@ -3,11 +3,11 @@ import {
     Menu,
     X,
     Sparkles,
-    ArrowRight,
     Code2,
     Layers,
     Mail,
     User,
+    Github,
 } from "lucide-react";
 
 export default function Navbar() {
@@ -152,9 +152,14 @@ export default function Navbar() {
                             ))}
                         </div>
 
-                        {/* Desktop CTA Button with animation */}
+                        {/* Desktop GitHub Icon */}
                         <div className="hidden md:block">
-                            <button className="group relative px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 overflow-hidden">
+                            <a
+                                href="https://github.com/Aymansaeed9542"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group relative w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-300 overflow-hidden"
+                            >
                                 {/* Animated gradient background */}
                                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 transition-all duration-300 group-hover:scale-105"></div>
 
@@ -163,14 +168,11 @@ export default function Navbar() {
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 group-hover:animate-pulse"></div>
                                 </div>
 
-                                <span className="relative flex items-center space-x-2 text-white">
-                                    <span>Get Started</span>
-                                    <ArrowRight
-                                        size={16}
-                                        className="group-hover:translate-x-1 transition-transform duration-300"
-                                    />
-                                </span>
-                            </button>
+                                <Github
+                                    size={24}
+                                    className="relative text-white group-hover:scale-110 transition-transform duration-300"
+                                />
+                            </a>
                         </div>
 
                         {/* Mobile Menu Button with animation */}
@@ -214,13 +216,18 @@ export default function Navbar() {
                                 </a>
                             ))}
 
-                            <button className="w-full mt-4 group relative px-6 py-3 rounded-xl font-medium text-sm overflow-hidden">
+                            <a
+                                href="https://github.com/Aymansaeed9542"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full mt-4 group relative px-6 py-3 rounded-xl font-medium text-sm overflow-hidden"
+                            >
                                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600"></div>
                                 <span className="relative flex items-center justify-center space-x-2 text-white">
-                                    <span>Get Started</span>
-                                    <ArrowRight size={16} />
+                                    <Github size={20} />
+                                    <span>GitHub</span>
                                 </span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

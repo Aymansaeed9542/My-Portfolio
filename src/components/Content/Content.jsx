@@ -8,7 +8,7 @@ import Contact from "../Contact/Contact";
 export default function Content() {
     return (
         <div className="relative pt-32">
-            <div className=" container mx-auto  lg:px-15 md:px-10 sm:px-5">
+            <div className="container mx-auto px-4 lg:px-16 xl:px-20">
                 {/* Hero Section */}
                 <Hero />
 

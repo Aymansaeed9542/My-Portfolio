@@ -37,10 +37,10 @@ export default function Hero() {
     };
 
     return (
-        <div ref={ref} className="container mx-auto px-4 mb-20">
+        <div ref={ref} className="mb-20">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
                 {/* Left side - Two-part heading */}
-                <div className="flex-1 text-center lg:text-left">
+                <div className="flex-1 text-center lg:text-left lg:pl-8 xl:pl-12">
                     {/* First part - Name */}
                     <div className={`transition-all duration-1000 ${showName ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 relative text-white">
@@ -78,7 +78,7 @@ export default function Hero() {
                 </div>
 
                 {/* Right side - Circular Portfolio Image */}
-                <div className="flex-1 flex justify-center lg:justify-end">
+                <div className="flex-1 flex justify-center lg:justify-end lg:pr-8 xl:pr-12">
                     <div className={`transition-all duration-1000 ease-out ${showImage ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
                         <div className="relative">
                             <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-gradient-to-r from-purple-400 to-blue-400 shadow-2xl">
