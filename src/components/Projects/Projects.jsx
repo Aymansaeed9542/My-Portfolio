@@ -5,11 +5,31 @@ import image1 from '../../assets/image.png';
 import image2 from '../../assets/image2.png';
 import image3 from '../../assets/image3.png';
 import image4 from '../../assets/image4.png';
+import image5 from '../../assets/image5.png';
+import image6 from '../../assets/image6.png';
 
 export default function Projects() {
     const [ref, isVisible] = useScrollAnimation(0.1);
     
     const projects = [
+        {
+            title: "M4A Brand",
+            description: "A modern branding and marketing website showcasing professional services and portfolio. Features responsive design, smooth animations, and clean user interface with interactive elements and modern styling.",
+            technologies: ["React", "Tailwind CSS", "Vite", "JavaScript"],
+            image: image5,
+            github: "https://github.com/Aymansaeed9542/m4a-brand",
+            live: "https://m4a-brand.vercel.app/",
+            featured: true
+        },
+        {
+            title: "E-commerce Store",
+            description: "A comprehensive e-commerce platform featuring Women's Fashion (shawls, blouses, cardigans, joggers, socks), Men's Fashion (t-shirts, boots, sneakers, hoodies, track pants), and Electronics (routers, printers, cameras, headphones, laptops). Includes shopping cart, user authentication, product categories, brand filtering, and secure payment processing.",
+            technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+            image: image6,
+            github: "https://github.com/Aymansaeed9542/e-commerce-store",
+            live: "https://e-commerce-peach-omega-75.vercel.app/",
+            featured: true
+        },
         {
             title: "Social Media App",
             description: "A full-stack social media application built with React, Node.js, and MongoDB. Features include user authentication, real-time chat, and media sharing.",
