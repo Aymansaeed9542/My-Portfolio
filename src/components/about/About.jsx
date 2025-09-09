@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { User, Code, Database, Smartphone } from "lucide-react";
+import { User, Code, Palette, Smartphone, Zap, Layers } from "lucide-react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { 
+    SiReact, 
+    SiNextdotjs, 
+    SiVuedotjs, 
+    SiTypescript, 
+    SiJavascript, 
+    SiTailwindcss, 
+    SiHtml5, 
+    SiCss3, 
+    SiVite, 
+    SiGit 
+} from "react-icons/si";
 
 export default function About() {
     const [ref, isVisible] = useScrollAnimation(0.1);
@@ -9,25 +21,23 @@ export default function About() {
     const [showSkills, setShowSkills] = useState(false);
     
     const skills = [
-        { name: "Frontend Development", icon: <Code size={24} />, description: "React, Vue.js, TypeScript, HTML5, CSS3" },
-        { name: "Backend Development", icon: <Database size={24} />, description: "Node.js, Python, PHP, Express.js" },
-        { name: "Database & APIs", icon: <Smartphone size={24} />, description: "MongoDB, MySQL, REST APIs, GraphQL" },
-        { name: "Tools & Technologies", icon: <User size={24} />, description: "Git, Docker, AWS, Vercel, Netlify" },
+        { name: "Frontend Development", icon: <Code size={24} />, description: "React, Vue.js, TypeScript, HTML5, CSS3", color: "from-blue-500 to-cyan-500" },
+        { name: "UI/UX Design", icon: <Palette size={24} />, description: "Tailwind CSS, Responsive Design, Modern Interfaces", color: "from-purple-500 to-pink-500" },
+        { name: "Web Technologies", icon: <Layers size={24} />, description: "Next.js, Vite, JavaScript, Modern Frameworks", color: "from-green-500 to-emerald-500" },
+        { name: "Development Tools", icon: <Zap size={24} />, description: "Git, VS Code, Chrome DevTools, Modern Workflow", color: "from-orange-500 to-red-500" },
     ];
 
     const technologies = [
-        { name: "React", icon: <Code size={32} className="text-blue-400" /> },
-        { name: "Vue.js", icon: <Code size={32} className="text-green-400" /> },
-        { name: "TypeScript", icon: <Code size={32} className="text-blue-600" /> },
-        { name: "Node.js", icon: <Code size={32} className="text-green-500" /> },
-        { name: "Express.js", icon: <Code size={32} className="text-gray-400" /> },
-        { name: "MongoDB", icon: <Database size={32} className="text-green-600" /> },
-        { name: "MySQL", icon: <Database size={32} className="text-blue-500" /> },
-        { name: "Git", icon: <Smartphone size={32} className="text-orange-600" /> },
-        { name: "Docker", icon: <Smartphone size={32} className="text-blue-500" /> },
-        { name: "AWS", icon: <Smartphone size={32} className="text-orange-500" /> },
-        { name: "Vercel", icon: <Smartphone size={32} className="text-black" /> },
-        { name: "Netlify", icon: <Smartphone size={32} className="text-green-500" /> },
+        { name: "React", icon: <SiReact className="text-blue-400" size={32} /> },
+        { name: "Next.js", icon: <SiNextdotjs className="text-white" size={32} /> },
+        { name: "Vue.js", icon: <SiVuedotjs className="text-green-400" size={32} /> },
+        { name: "TypeScript", icon: <SiTypescript className="text-blue-600" size={32} /> },
+        { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" size={32} /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-400" size={32} /> },
+        { name: "HTML5", icon: <SiHtml5 className="text-orange-500" size={32} /> },
+        { name: "CSS3", icon: <SiCss3 className="text-blue-500" size={32} /> },
+        { name: "Vite", icon: <SiVite className="text-purple-400" size={32} /> },
+        { name: "Git", icon: <SiGit className="text-orange-500" size={32} /> },
     ];
 
     useEffect(() => {
@@ -93,19 +103,24 @@ export default function About() {
                     {skills.map((skill, index) => (
                         <div
                             key={skill.name}
-                            className={`group relative p-6 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all duration-300 ${showSkills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                            className={`group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 ${showSkills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                             style={{ 
                                 transitionDelay: `${2500 + index * 200}ms`,
                                 transitionDuration: '800ms'
                             }}
                         >
-                            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            {/* Gradient background */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500`}></div>
+                            
+                            {/* Glow effect */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-20 blur-xl rounded-2xl transition-opacity duration-500`}></div>
+                            
                             <div className="relative">
-                                <div className="text-purple-400 mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <div className={`text-purple-400 mb-4 group-hover:scale-110 transition-transform duration-300 p-3 rounded-xl bg-gradient-to-br ${skill.color} bg-opacity-10`}>
                                     {skill.icon}
                                 </div>
-                                <h4 className="text-white font-semibold mb-2">{skill.name}</h4>
-                                <p className="text-gray-400 text-sm">{skill.description}</p>
+                                <h4 className="text-white font-bold mb-3 text-lg group-hover:text-purple-300 transition-colors duration-300">{skill.name}</h4>
+                                <p className="text-gray-400 text-sm leading-relaxed">{skill.description}</p>
                             </div>
                         </div>
                     ))}
@@ -124,29 +139,32 @@ export default function About() {
                             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-md scale-105 opacity-50"></div>
                         </h3>
                     </div>
-                    <div className="relative overflow-hidden rounded-xl bg-white/5 border border-white/10 p-8">
-                        <div className="flex animate-scroll space-x-8">
+                    <div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-8 backdrop-blur-sm">
+                        {/* Background glow */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-2xl"></div>
+                        
+                        <div className="flex animate-scroll space-x-6">
                             {technologies.map((tech, index) => (
                                 <div
                                     key={`${tech.name}-${index}`}
-                                    className="flex-shrink-0 flex flex-col items-center p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all duration-300 group"
+                                    className="flex-shrink-0 flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all duration-300 group hover:scale-110 hover:bg-white/10"
                                 >
-                                    <div className="mb-2 group-hover:scale-110 transition-transform duration-300">
+                                    <div className="mb-3 group-hover:scale-110 transition-transform duration-300">
                                         {tech.icon}
                                     </div>
-                                    <span className="text-gray-300 text-sm text-center">{tech.name}</span>
+                                    <span className="text-gray-300 text-sm text-center font-medium group-hover:text-white transition-colors duration-300">{tech.name}</span>
                                 </div>
                             ))}
                             {/* Duplicate items for seamless loop */}
                             {technologies.map((tech, index) => (
                                 <div
                                     key={`${tech.name}-duplicate-${index}`}
-                                    className="flex-shrink-0 flex flex-col items-center p-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all duration-300 group"
+                                    className="flex-shrink-0 flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all duration-300 group hover:scale-110 hover:bg-white/10"
                                 >
-                                    <div className="mb-2 group-hover:scale-110 transition-transform duration-300">
+                                    <div className="mb-3 group-hover:scale-110 transition-transform duration-300">
                                         {tech.icon}
                                     </div>
-                                    <span className="text-gray-300 text-sm text-center">{tech.name}</span>
+                                    <span className="text-gray-300 text-sm text-center font-medium group-hover:text-white transition-colors duration-300">{tech.name}</span>
                                 </div>
                             ))}
                         </div>
