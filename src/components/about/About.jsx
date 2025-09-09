@@ -117,8 +117,8 @@ export default function About() {
                                 </div>
                                 
                                 <p className="text-gray-400 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors duration-300">
-                                    As a full-stack developer, I specialize in modern JavaScript frameworks and enjoy building complete solutions from database design to user interface. I'm constantly learning new technologies and contributing to open-source projects to expand my skills.
-                                </p>
+                        As a full-stack developer, I specialize in modern JavaScript frameworks and enjoy building complete solutions from database design to user interface. I'm constantly learning new technologies and contributing to open-source projects to expand my skills.
+                    </p>
                             </div>
                             
                             <div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm group-hover:border-purple-500/50 transition-all duration-500">
@@ -138,9 +138,9 @@ export default function About() {
                                 </div>
                                 
                                 <p className="text-gray-400 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors duration-300">
-                                    When I'm not coding, you can find me exploring new technologies, working on personal projects, or collaborating with other developers to create innovative solutions.
-                                </p>
-                            </div>
+                        When I'm not coding, you can find me exploring new technologies, working on personal projects, or collaborating with other developers to create innovative solutions.
+                    </p>
+                </div>
                         </div>
                         
                         {/* Interactive highlight lines */}
@@ -148,8 +148,8 @@ export default function About() {
                         <div className="absolute right-0 top-0 w-1 h-full bg-gradient-to-b from-blue-500/50 to-purple-500/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                 </div>
-                <div className={`relative transition-all duration-1000 ${showImage ? 'opacity-100 scale-100' : 'opacity-0 scale-75'} sm:ms-[10rem]`}>
-                    <div className="w-96 h-96 mx-auto relative group cursor-pointer">
+                <div className={`relative transition-all duration-1000 ${showImage ? 'opacity-100 scale-100' : 'opacity-0 scale-75'} flex justify-center md:ms-[10rem]`}>
+                    <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto relative group cursor-pointer">
                         {/* Outer glow ring */}
                         <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 blur-2xl group-hover:blur-3xl transition-all duration-500 animate-pulse"></div>
                         
@@ -196,7 +196,7 @@ export default function About() {
                                         style={{
                                             left: '50%',
                                             top: '50%',
-                                            transform: `translate(-50%, -50%) rotate(${tech.angle}deg) translateY(-140px) rotate(-${tech.angle}deg)`,
+                                            transform: `translate(-50%, -50%) rotate(${tech.angle}deg) translateY(-110px) rotate(-${tech.angle}deg)`,
                                             animationDelay: `${index * 0.2}s`,
                                         }}
                                     >
@@ -232,7 +232,7 @@ export default function About() {
                 <div className="text-center mb-8">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 relative">
                         <span className="bg-gradient-to-r from-white via-purple-400 to-blue-400 bg-clip-text text-transparent">
-                            Skills & Expertise
+                    Skills & Expertise
                         </span>
                         {/* Decorative line */}
                         <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
@@ -287,14 +287,14 @@ export default function About() {
                     <div className="text-center mb-8">
                         <h3 className="text-2xl md:text-3xl font-bold mb-4 relative">
                             <span className="bg-gradient-to-r from-white via-purple-400 to-blue-400 bg-clip-text text-transparent">
-                                Technologies I Work With
+                        Technologies I Work With
                             </span>
                             {/* Decorative line */}
                             <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
                             {/* Glow effect */}
                             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-md scale-105 opacity-50"></div>
                         </h3>
-                    </div>
+                                    </div>
                     
                     {/* Enhanced Technologies Container */}
                     <div className="relative w-full max-w-6xl mx-auto">
@@ -307,7 +307,7 @@ export default function About() {
                             <div className="absolute inset-0 opacity-30">
                                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-blue-500/10 animate-pulse"></div>
                                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent"></div>
-                            </div>
+                                </div>
                             
                             {/* Floating particles */}
                             <div className="absolute inset-0 pointer-events-none">
@@ -327,8 +327,8 @@ export default function About() {
                             
                             {/* Responsive grid layout */}
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6 relative z-10">
-                                {technologies.map((tech, index) => (
-                                    <div
+                            {technologies.map((tech, index) => (
+                                <div
                                         key={tech.name}
                                         className="group relative flex flex-col items-center p-4 md:p-6 rounded-2xl bg-white/10 border border-white/20 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:bg-white/15 hover:-translate-y-2 backdrop-blur-sm"
                                         style={{
@@ -339,8 +339,8 @@ export default function About() {
                                         <div className="relative mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                                             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                             <div className="relative p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 group-hover:border-purple-500/50 transition-all duration-300">
-                                                {tech.icon}
-                                            </div>
+                                        {tech.icon}
+                                    </div>
                                         </div>
                                         
                                         {/* Technology name */}
@@ -350,8 +350,8 @@ export default function About() {
                                         
                                         {/* Hover glow effect */}
                                         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                    </div>
-                                ))}
+                                </div>
+                            ))}
                             </div>
                             
                             {/* Automatic movement indicators */}

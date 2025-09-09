@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { getStaggerStyle } from "../../utils/stagger";
 import SplitText from "../SplitText/SplitText";
-import portfolioImage from "../../assets/portfolio.jpg";
+import portfolioImage from "../../assets/portfolio-removebg-preview.png";
 
 export default function Hero() {
-    const [ref, isVisible] = useScrollAnimation(0.1);
+    const [ref] = useScrollAnimation(0.1);
     const [showName, setShowName] = useState(false);
     const [showTitle, setShowTitle] = useState(false);
     const [showImage, setShowImage] = useState(false);
@@ -42,7 +43,7 @@ export default function Hero() {
                 {/* Left side - Two-part heading */}
                 <div className="flex-1 text-center lg:text-left lg:pl-8 xl:pl-12">
                     {/* First part - Name */}
-                    <div className={`transition-all duration-1000 ${showName ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div className={`transition-all duration-1000 ${showName ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={getStaggerStyle(0)}>
                         <div className="text-center lg:text-left mb-8">
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
                                 {showName && (
@@ -64,7 +65,7 @@ export default function Hero() {
                     </div>
                     
                     {/* Second part - Title */}
-                    <div className={`transition-all duration-1000 ${showTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div className={`transition-all duration-1000 ${showTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={getStaggerStyle(1)}>
                         <div className="text-center lg:text-left mb-6">
                             <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold mb-6 text-gray-300">
                                 Computer Science Student & Software Developer
@@ -72,7 +73,7 @@ export default function Hero() {
                         </div>
                         
                         {/* Description */}
-                        <div className={`transition-all duration-1000 delay-300 ${showTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div className={`transition-all duration-1000 ${showTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={getStaggerStyle(2)}>
                             <p className="text-gray-400 text-base md:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                                 Full-stack developer specializing in frontend technologies. 
                                 Creating modern web applications with clean code and beautiful interfaces.
@@ -83,7 +84,7 @@ export default function Hero() {
 
                 {/* Right side - Circular Portfolio Image */}
                 <div className="flex-1 flex justify-center lg:justify-end lg:pr-8 xl:pr-12">
-                    <div className={`transition-all duration-1000 ease-out ${showImage ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
+                    <div className={`transition-all duration-1000 ease-out ${showImage ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`} style={getStaggerStyle(3)}>
                         <div className="relative">
                             {/* Enhanced colored shadow */}
                             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 opacity-25 blur-xl scale-105"></div>

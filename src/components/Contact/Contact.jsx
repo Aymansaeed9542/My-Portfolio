@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Facebook } from "lucide-react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { getStaggerStyle } from "../../utils/stagger";
 
 export default function Contact() {
     const [ref, isVisible] = useScrollAnimation(0.1);
@@ -54,7 +55,7 @@ export default function Contact() {
     return (
         <div ref={ref} className="space-y-12">
             {/* Enhanced Header */}
-            <div className={`text-center mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={getStaggerStyle(0)}>
                 <div className="relative">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 relative">
                         <span className="bg-gradient-to-r from-white via-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -80,7 +81,7 @@ export default function Contact() {
 
             <div className="grid md:grid-cols-2 gap-12">
                 {/* Enhanced Contact Form */}
-                <div className={`space-y-8 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className={`space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={getStaggerStyle(1)}>
                     <div className="text-center mb-8">
                         <h3 className="text-2xl md:text-3xl font-bold mb-4 relative">
                             <span className="bg-gradient-to-r from-white to-purple-400 bg-clip-text text-transparent">
@@ -181,7 +182,7 @@ export default function Contact() {
                 </div>
 
                 {/* Enhanced Contact Information */}
-                <div className={`space-y-8 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className={`space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={getStaggerStyle(2)}>
                     <div className="text-center mb-8">
                         <h4 className="text-2xl md:text-3xl font-bold mb-4 relative">
                             <span className="bg-gradient-to-r from-white to-purple-400 bg-clip-text text-transparent">
@@ -198,7 +199,7 @@ export default function Contact() {
                                 href={info.link}
                                 className={`group flex items-center space-x-6 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-purple-500/5 transition-all duration-300 backdrop-blur-sm ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                                 style={{ 
-                                    transitionDelay: `${800 + index * 100}ms`,
+                                    ...getStaggerStyle(3 + index),
                                     transitionDuration: '1000ms'
                                 }}
                             >
@@ -229,7 +230,7 @@ export default function Contact() {
                                     className={`group p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-purple-600/20 transition-all duration-300 backdrop-blur-sm ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                                     title={social.label}
                                     style={{ 
-                                        transitionDelay: `${1200 + index * 100}ms`,
+                                        ...getStaggerStyle(6 + index),
                                         transitionDuration: '1000ms'
                                     }}
                                 >
