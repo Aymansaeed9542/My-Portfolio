@@ -75,6 +75,8 @@ export default function Navbar() {
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-6"
                 }`}
+            role="navigation"
+            aria-label="Main navigation"
         >
             <div className="navbar-container max-w-[900px] mx-auto px-4 relative">
                 {/* Glow effect that follows mouse */}
@@ -116,7 +118,7 @@ export default function Navbar() {
                         </div>
 
                         {/* Desktop Navigation with icons */}
-                        <div className="hidden md:flex items-center space-x-1">
+                        <div className="hidden md:flex items-center space-x-1" role="menubar">
                             {navLinks.map((link) => (
                                 <a
                                     key={link.name}
@@ -126,6 +128,8 @@ export default function Navbar() {
                                             ? "text-white"
                                             : "text-gray-400 hover:text-white"
                                         }`}
+                                    role="menuitem"
+                                    aria-current={activeLink === link.name.toLowerCase() ? "page" : undefined}
                                 >
                                     {/* Active/Hover background */}
                                     <div
@@ -179,6 +183,9 @@ export default function Navbar() {
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300 group"
+                            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                            aria-expanded={isMenuOpen}
+                            aria-controls="mobile-menu"
                         >
                             <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-purple-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             <div className="relative">
@@ -193,8 +200,11 @@ export default function Navbar() {
 
                     {/* Mobile Menu with smooth animation */}
                     <div
+                        id="mobile-menu"
                         className={`md:hidden overflow-hidden transition-all duration-500 ${isMenuOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
                             }`}
+                        role="menu"
+                        aria-label="Mobile navigation menu"
                     >
                         <div className="pt-4 border-t border-white/10 space-y-2">
                             {navLinks.map((link, index) => (
@@ -203,6 +213,8 @@ export default function Navbar() {
                                     href={link.href}
                                     onClick={() => handleNavClick(link.name)}
                                     className="group block relative overflow-hidden rounded-lg transition-all duration-300"
+                                    role="menuitem"
+                                    aria-current={activeLink === link.name.toLowerCase() ? "page" : undefined}
                                     style={{
                                         animationDelay: `${index * 50}ms`,
                                     }}

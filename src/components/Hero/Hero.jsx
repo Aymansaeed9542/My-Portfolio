@@ -92,8 +92,11 @@ export default function Hero() {
                             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-gradient-to-r from-purple-400 to-blue-400 shadow-2xl">
                                 <img 
                                     src={portfolioImage} 
-                                    alt="Ayman Saeed Portfolio" 
+                                    alt="Ayman Saeed - Computer Science Student and Software Developer professional headshot" 
                                     className="w-full h-full object-cover"
+                                    loading="eager"
+                                    width="384"
+                                    height="384"
                                 />
                             </div>
                             

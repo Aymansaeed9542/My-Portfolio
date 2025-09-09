@@ -1,0 +1,21 @@
+{
+  "name": "Ayman Saeed - Portfolio",
+  "short_name": "Ayman Saeed",
+  "description": "Computer Science Student & Software Developer Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#a855f7",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "developer", "education"],
+  "lang": "en",
+  "scope": "/"
+}
