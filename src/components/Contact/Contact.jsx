@@ -57,21 +57,6 @@ export default function Contact() {
             {/* Enhanced Header */}
             <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={getStaggerStyle(0)}>
                 <div className="relative">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 relative">
-                        <span className="bg-gradient-to-r from-white via-purple-400 to-blue-400 bg-clip-text text-transparent">
-                            Get In Touch
-                        </span>
-                        {/* Decorative line */}
-                        <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
-                        {/* Glow effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-xl scale-110 opacity-50"></div>
-                    </h2>
-                    {/* Subtitle accent */}
-                    <div className="flex items-center justify-center space-x-2 text-gray-400 mt-6">
-                        <div className="w-8 h-px bg-gradient-to-r from-transparent to-purple-500"></div>
-                        <span className="text-sm font-medium tracking-wider uppercase">Let's Connect</span>
-                        <div className="w-8 h-px bg-gradient-to-l from-transparent to-blue-500"></div>
-                    </div>
                 </div>
                 <p className="text-gray-400 max-w-2xl mx-auto mt-8 text-lg leading-relaxed">
                     I'm always interested in hearing about new projects and opportunities. 

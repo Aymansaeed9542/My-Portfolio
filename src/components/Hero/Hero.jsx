@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Quote } from "lucide-react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { getStaggerStyle } from "../../utils/stagger";
 import SplitText from "../SplitText/SplitText";
@@ -68,16 +69,37 @@ export default function Hero() {
                     <div className={`transition-all duration-1000 ${showTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={getStaggerStyle(1)}>
                         <div className="text-center lg:text-left mb-6">
                             <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold mb-6 text-gray-300">
-                                Computer Science Student & Software Developer
+                                Frontend Developer — Next.js, React
                             </h2>
                         </div>
                         
                         {/* Description */}
                         <div className={`transition-all duration-1000 ${showTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={getStaggerStyle(2)}>
                             <p className="text-gray-400 text-base md:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                                Full-stack developer specializing in frontend technologies. 
+                                Aspiring MERN-stack developer specializing in frontend technologies. 
                                 Creating modern web applications with clean code and beautiful interfaces.
                             </p>
+                        </div>
+
+                        {/* Attention-grabbing hook quote */}
+                        <div className={`mt-6 transition-all duration-1000 ${showTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={getStaggerStyle(3)}>
+                            <blockquote className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 md:p-6 group">
+                                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-purple-500/10 via-blue-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div className="relative pl-14">
+                                    <div className="absolute top-2 left-3 w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/25 to-blue-500/25 border border-white/10 flex items-center justify-center rotate-6 group-hover:rotate-0 transition-transform duration-300">
+                                        <Quote size={18} className="text-purple-200" />
+                                    </div>
+                                    <p className="md:text-lg leading-relaxed font-medium">
+                                        <span className="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 bg-clip-text text-transparent">
+                                            “Next.js speed. React perfection. Results that blow your mind.”
+                                        </span>
+                                    </p>
+                                    <div className="mt-3 text-sm text-gray-400">
+                                        Focused on performance, accessibility, and delightful interactions.
+                                    </div>
+                                    <div className="mt-4 h-0.5 w-20 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full group-hover:w-28 transition-all duration-300"></div>
+                                </div>
+                            </blockquote>
                         </div>
                     </div>
                 </div>

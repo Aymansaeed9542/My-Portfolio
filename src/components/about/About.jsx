@@ -234,8 +234,6 @@ export default function About() {
                         <span className="bg-gradient-to-r from-white via-purple-400 to-blue-400 bg-clip-text text-transparent">
                     Skills & Expertise
                         </span>
-                        {/* Decorative line */}
-                        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
                         {/* Glow effect */}
                         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/15 to-blue-500/15 blur-lg scale-105 opacity-60"></div>
                     </h2>
@@ -289,8 +287,6 @@ export default function About() {
                             <span className="bg-gradient-to-r from-white via-purple-400 to-blue-400 bg-clip-text text-transparent">
                         Technologies I Work With
                             </span>
-                            {/* Decorative line */}
-                            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
                             {/* Glow effect */}
                             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-md scale-105 opacity-50"></div>
                         </h3>
