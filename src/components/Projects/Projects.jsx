@@ -22,7 +22,7 @@ export default function Projects() {
             live: "https://m4a-brand.vercel.app/",
             featured: true,
             category: "Branding",
-            year: "2024",
+            year: "2025",
             status: "Live"
         },
         {
@@ -31,10 +31,10 @@ export default function Projects() {
             technologies: ["React", "Node.js", "MongoDB", "Stripe"],
             image: image5,
             github: "https://github.com/Aymansaeed9542/e-commerce-store",
-            live: "https://e-commerce-peach-omega-75.vercel.app/",
+            live: "https://github.com/Aymansaeed9542/e-commerce",
             featured: true,
             category: "E-commerce",
-            year: "2024",
+            year: "2025",
             status: "Live"
             
         },
@@ -43,11 +43,11 @@ export default function Projects() {
             description: "A full-stack social media application built with React, Node.js, and MongoDB. Features include user authentication, real-time chat, and media sharing.",
             technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
             image: image1,
-            github: "#",
-            live: "#",
+            github: "https://github.com/Aymansaeed9542/SocialApp",
+            live: "https://social-app-two-teal.vercel.app/",
             featured: true,
             category: "Social",
-            year: "2023",
+            year: "2025",
             status: "Development"
         },
         {
@@ -55,11 +55,11 @@ export default function Projects() {
             description: "A collaborative platform for developers to find and match with peers for coding projects, featuring real-time chat and project management tools.",
             technologies: ["Vue.js", "Firebase", "Vuex", "Tailwind CSS"],
             image: image2,
-            github: "#",
-            live: "#",
+            github: "https://github.com/Aymansaeed9542/dev-match",
+            live: "https://aymansaeed9542.github.io/dev-match/",
             featured: true,
             category: "Collaboration",
-            year: "2023",
+            year: "2024",
             status: "Development"
         },
         {
@@ -67,11 +67,11 @@ export default function Projects() {
             description: "A platform for users to buy and sell cars, featuring advanced search filters, user reviews, and a seamless checkout process.",
             technologies: ["JavaScript", "HTML5", "CSS3", "Chart.js"],
             image: image3,
-            github: "#",
+            github: "https://github.com/Aymansaeed9542/paio-car-company",
             live: "#",
             featured: false,
             category: "Automotive",
-            year: "2023",
+            year: "2024",
             status: "Completed"
         },
         {
@@ -79,11 +79,11 @@ export default function Projects() {
             description: "A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and interactive elements.",
             technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
             image: image4,
-            github: "#",
-            live: "#",
+            github: "https://github.com/Aymansaeed9542/My-Portfolio",
+            live: "https://aymansaeed9542.github.io/paio-car-company/",
             featured: false,
             category: "Portfolio",
-            year: "2024",
+            year: "2025",
             status: "Live"
         }
     ];
