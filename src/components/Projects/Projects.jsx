@@ -28,7 +28,7 @@ export default function Projects() {
         {
             title: "E-commerce Store",
             description: "A comprehensive e-commerce platform featuring Women's Fashion (shawls, blouses, cardigans, joggers, socks), Men's Fashion (t-shirts, boots, sneakers, hoodies, track pants), and Electronics (routers, printers, cameras, headphones, laptops). Includes shopping cart, user authentication, product categories, brand filtering, and secure payment processing.",
-            technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+            technologies: ["Next", "Node.js", "MongoDB"],
             image: image5,
             github: "https://github.com/Aymansaeed9542/e-commerce-store",
             live: "https://github.com/Aymansaeed9542/e-commerce",
@@ -41,7 +41,7 @@ export default function Projects() {
         {
             title: "Social Media App",
             description: "A full-stack social media application built with React, Node.js, and MongoDB. Features include user authentication, real-time chat, and media sharing.",
-            technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
+            technologies: ["React", "Node.js", "MongoDB", "CSS3"],
             image: image1,
             github: "https://github.com/Aymansaeed9542/SocialApp",
             live: "https://social-app-two-teal.vercel.app/",
@@ -53,7 +53,7 @@ export default function Projects() {
         {
             title: "DevMatch Programmer",
             description: "A collaborative platform for developers to find and match with peers for coding projects, featuring real-time chat and project management tools.",
-            technologies: ["Vue.js", "Firebase", "Vuex", "Tailwind CSS"],
+            technologies: ["HTML", "CSS", "JavaScript"],
             image: image2,
             github: "https://github.com/Aymansaeed9542/dev-match",
             live: "https://aymansaeed9542.github.io/dev-match/",
@@ -65,7 +65,7 @@ export default function Projects() {
         {
             title: "Paio Cars Company",
             description: "A platform for users to buy and sell cars, featuring advanced search filters, user reviews, and a seamless checkout process.",
-            technologies: ["JavaScript", "HTML5", "CSS3", "Chart.js"],
+            technologies: ["JavaScript", "HTML5", "CSS3"],
             image: image3,
             github: "https://github.com/Aymansaeed9542/paio-car-company",
             live: "https://aymansaeed9542.github.io/paio-car-company/",
