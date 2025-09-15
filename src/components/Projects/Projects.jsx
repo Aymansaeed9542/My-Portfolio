@@ -6,7 +6,7 @@ import image1 from '../../assets/image.png';
 import image2 from '../../assets/image2.png';
 import image3 from '../../assets/image3.png';
 import image4 from '../../assets/image4.png';
-import image5 from '../../assets/image5.png';
+import image5 from '../../assets/e-commerce.png';
 import image6 from '../../assets/image6.png';
 
 export default function Projects() {
@@ -31,7 +31,7 @@ export default function Projects() {
             technologies: ["Next", "Node.js", "MongoDB"],
             image: image5,
             github: "https://github.com/Aymansaeed9542/e-commerce-store",
-            live: "https://github.com/Aymansaeed9542/e-commerce",
+            live: "https://e-commerce-peach-omega-75.vercel.app",
             featured: true,
             category: "E-commerce",
             year: "2025",
@@ -112,14 +112,22 @@ export default function Projects() {
                     >
                         {/* Project Image */}
                         <div className="relative h-48 overflow-hidden">
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                            
-                            {/* Simple overlay */}
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+                            <a
+                                href={project.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block w-full h-full cursor-pointer relative"
+                                title={`View ${project.title} Demo`}
+                            >
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                                
+                                {/* Simple overlay */}
+                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+                            </a>
                             
                             {/* Project Links */}
                             <div className="absolute top-3 right-3 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
