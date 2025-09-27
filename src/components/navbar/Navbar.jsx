@@ -8,6 +8,7 @@ import {
     Mail,
     User,
     Github,
+    FileText,
 } from "lucide-react";
 
 export default function Navbar() {
@@ -156,6 +157,29 @@ export default function Navbar() {
                             ))}
                         </div>
 
+                        {/* Desktop CV Download Button */}
+                        <div className="hidden md:block">
+                            <a
+                                href="/Ayman-saeed-cv (2) (1).pdf"
+                                download="Ayman-Saeed-CV.pdf"
+                                className="group relative w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-300 overflow-hidden"
+                                title="Download CV"
+                            >
+                                {/* Animated gradient background */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 transition-all duration-300 group-hover:scale-105"></div>
+
+                                {/* Shine effect */}
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 group-hover:animate-pulse"></div>
+                                </div>
+
+                                <FileText
+                                    size={24}
+                                    className="relative text-white group-hover:scale-110 transition-transform duration-300"
+                                />
+                            </a>
+                        </div>
+
                         {/* Desktop GitHub Icon */}
                         <div className="hidden md:block">
                             <a
@@ -229,10 +253,22 @@ export default function Navbar() {
                             ))}
 
                             <a
+                                href="/Ayman-saeed-cv (2) (1).pdf"
+                                download="Ayman-Saeed-CV.pdf"
+                                className="w-full mt-4 group relative px-6 py-3 rounded-xl font-medium text-sm overflow-hidden"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600"></div>
+                                <span className="relative flex items-center justify-center space-x-2 text-white">
+                                    <FileText size={20} />
+                                    <span>CV</span>
+                                </span>
+                            </a>
+
+                            <a
                                 href="https://github.com/Aymansaeed9542"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-full mt-4 group relative px-6 py-3 rounded-xl font-medium text-sm overflow-hidden"
+                                className="w-full mt-2 group relative px-6 py-3 rounded-xl font-medium text-sm overflow-hidden"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600"></div>
                                 <span className="relative flex items-center justify-center space-x-2 text-white">
