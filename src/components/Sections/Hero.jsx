@@ -68,10 +68,12 @@ export default function Hero() {
         /* Stack vertically on narrow screens */
         @media (max-width: 640px) {
           .hero-section {
-            justify-content: flex-start;
-            padding-top: clamp(100px, 15vh, 140px);
+            flex-direction: column;
+            justify-content: center;
+            padding-top: clamp(80px, 12vh, 120px);
+            gap: 24px;
           }
-          .hero-card-wrap { width: 100%; max-width: 240px; margin: 0 auto; }
+          .hero-card-wrap { width: 100%; max-width: 220px; margin: 0 auto; }
           .hero-text { align-items: center; text-align: center; }
           .hero-bio  { text-align: center; }
           .hero-btns { justify-content: center; }
@@ -137,7 +139,7 @@ export default function Hero() {
               margin: 0,
               fontFamily: 'var(--font-heading)',
               fontWeight: 100,
-              fontSize: 'clamp(2.4rem, 5.5vw, 4.4rem)',
+              fontSize: 'clamp(2rem, 8vw, 4.4rem)',
               letterSpacing: '-0.01em',
               color: '#f0f0f0',
               lineHeight: 1.05,

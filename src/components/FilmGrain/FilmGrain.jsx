@@ -5,10 +5,7 @@ export default function FilmGrain() {
     <div
       style={{
         position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
+        inset: 0,
         pointerEvents: 'none',
         zIndex: 9998, /* Below the cursor */
         opacity: 0.05, /* Very subtle */

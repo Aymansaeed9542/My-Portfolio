@@ -153,7 +153,7 @@ export default function Contact() {
             }}
             transition={{ duration: 0.3 }}
             style={{
-              fontSize: 'clamp(2rem, 6vw, 5rem)',
+              fontSize: 'clamp(1rem, 5.5vw, 4rem)',
               fontWeight: 200,
               fontFamily: 'var(--font-body)',
               letterSpacing: '-0.02em',
