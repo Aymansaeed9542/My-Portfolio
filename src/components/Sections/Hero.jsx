@@ -53,6 +53,8 @@ export default function Hero() {
         @media (max-width: 1024px) {
            .orbit-desktop { display: none !important; }
            .orbit-mobile { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 40px; }
+           .hero-spatial { --bio-margin: 40px; --card-padding: 60px 20px; }
+           .hero-bg-text { display: none !important; }
         }
         @media (min-width: 1025px) {
            .orbit-mobile { display: none !important; }
@@ -143,7 +145,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, delay: 1.6, ease: EASE }}
           style={{
-            marginTop: '120px',
+            marginTop: 'var(--bio-margin, 120px)',
             fontFamily: 'var(--font-body)',
             fontWeight: 300,
             fontSize: 'max(14px, 0.9vw)',

@@ -21,9 +21,19 @@
     font-family: var(--font-body);
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Fallback */
   }
 
+  /* Aggressive overflow containment for mobile without breaking sticky */
+  html, body {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    width: 100%;
   h1, h2, h3 {
     font-family: var(--font-heading);
     font-weight: 400; /* Saira Stencil One only has one weight */
@@ -34,6 +44,11 @@
     0%, 100% { opacity: 1; box-shadow: 0 0 6px currentColor; }
     50% { opacity: 0.5; box-shadow: 0 0 2px currentColor; }
   }
+}
+
+#root {
+  width: 100%;
+  overflow-x: clip;
 }
 
 @layer utilities {
