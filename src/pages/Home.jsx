@@ -27,10 +27,12 @@ export default function Home() {
                 />
             </div>
 
-            <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center">
-
-                {/* 1. Hero — no wrapper, animates internally */}
+            {/* 1. Hero — Full screen width without bounding box */}
+            <div className="w-full z-10 relative">
                 <Hero />
+            </div>
+
+            <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center">
 
                 {/* 2. Tech Logos Marquee */}
                 <RevealOnScroll variant="scrub" className="w-full" yOffset={30}>
