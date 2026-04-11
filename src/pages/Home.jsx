@@ -77,11 +77,11 @@ export default function Home() {
 function SectionSeparator() {
     return (
         <div style={{
-            width: '100%',
+            width: 'calc(100% - 32px)',
             maxWidth: '1100px',
             height: '1px',
             background: 'linear-gradient(to right, transparent, #1a1a1a 20%, #1a1a1a 80%, transparent)',
-            margin: '0 16px',
+            margin: '0 auto',
         }} />
     );
 }
