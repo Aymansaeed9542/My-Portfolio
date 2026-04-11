@@ -35,7 +35,7 @@ export default function Hero() {
         .hero-bg-text {
           font-size: clamp(8rem, 25vw, 25rem);
           font-family: var(--font-heading);
-          -webkit-text-stroke: 1px rgba(255, 255, 255, 0.04);
+          -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
           color: transparent;
           margin: 0;
           white-space: nowrap;
@@ -172,7 +172,8 @@ const StatusBadge = () => (
     borderRadius: '999px', fontSize: '10px', fontFamily: 'var(--font-body)',
     fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase',
     color: '#888', border: '1px solid rgba(255,255,255,0.05)',
-    background: 'rgba(10,10,10,0.4)', backdropFilter: 'blur(10px)'
+    background: 'rgba(10,10,10,0.4)', backdropFilter: 'blur(10px)',
+    whiteSpace: 'nowrap'
   }}>
     <span style={{
       width: '6px', height: '6px', borderRadius: '50%', background: '#34d399',
@@ -187,7 +188,8 @@ const RotatingFocus = () => (
     display: 'flex', alignItems: 'center', gap: '12px',
     background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)',
     padding: '8px 16px', borderRadius: '16px', backdropFilter: 'blur(10px)',
-    fontFamily: 'var(--font-body)', fontWeight: 300, fontSize: '13px', color: '#666'
+    fontFamily: 'var(--font-body)', fontWeight: 300, fontSize: '13px', color: '#666',
+    whiteSpace: 'nowrap'
   }}>
     <span style={{ fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Executing</span>
     <span style={{ display: 'inline-block', width: '150px', overflow: 'hidden' }}>
@@ -208,7 +210,7 @@ const RotatingFocus = () => (
 
 const ActionButtons = () => {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', whiteSpace: 'nowrap' }}>
       <motion.a
         href={CV_URL} download
         whileHover={{ scale: 1.05, borderColor: '#666', color: '#fff', background: 'rgba(255,255,255,0.05)' }}
@@ -230,7 +232,7 @@ const ActionButtons = () => {
         whileTap={{ scale: 0.95 }}
         style={{
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-          width: '42px', height: '42px', borderRadius: '50%',
+          width: '42px', height: '42px', borderRadius: '50%', flexShrink: 0,
           border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(10,10,10,0.6)',
           color: '#aaa', textDecoration: 'none', backdropFilter: 'blur(10px)', transition: 'all 0.3s'
         }}
