@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const CV_URL = '/cv.pdf';
+const CV_URL = '/Ayman-saeed-cv (2) (1).pdf';
 const GITHUB_URL = 'https://github.com/AymanSaeed';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -26,7 +26,7 @@ export default function Hero() {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, ease: EASE }}
-          src="/avatars/hero-section-avatar.png" 
+          src="/avatars/hero-avatar.webp" 
           alt="Ayman Saeed" 
           className="h-full object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
         />
@@ -36,7 +36,7 @@ export default function Hero() {
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8, ease: EASE }}
-          className="absolute top-1/4 left-[5%] md:left-[15%] bg-[#161b22] border border-[#30363d] p-3 rounded-lg shadow-2xl backdrop-blur-md hidden sm:block"
+          className="absolute top-1/4 left-[5%] md:left-[15%] bg-[#161b22] border border-[#30363d] p-3 rounded-lg shadow-2xl backdrop-blur-md hidden sm:block z-20"
         >
           <div className="flex gap-2 mb-2">
             <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>

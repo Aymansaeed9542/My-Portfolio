@@ -54,7 +54,7 @@ export default function TechLogos() {
 
         <LogoLoop
           logos={logoItems}
-          speed={60}
+          speed={25}
           gap={40}
           logoHeight={60}
           pauseOnHover={false}

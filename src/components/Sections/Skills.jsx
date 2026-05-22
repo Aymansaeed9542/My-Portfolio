@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import GitHubStats from '../GitHubStats/GitHubStats';
 import {
   SiReact, SiNextdotjs, SiNodedotjs, SiTypescript, SiJavascript,
   SiMongodb, SiPostgresql, SiMysql, SiMongoose, SiJsonwebtokens, SiSocketdotio,
@@ -105,13 +106,13 @@ export default function Skills() {
       {/* HEADER WITH AVATAR */}
       <div className="flex flex-col items-center mb-16 relative z-10 w-full mt-10">
          <motion.div 
-           initial={{ opacity: 0, y: -50 }}
+           initial={{ opacity: 0, y: -80 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
-           transition={{ duration: 0.8 }}
-           className="w-full max-w-[400px] md:max-w-[450px] mb-6 flex justify-center"
+           transition={{ duration: 1.5, ease: "easeOut" }}
+           className="w-full max-w-[500px] md:max-w-[600px] mb-6 flex justify-center"
          >
-            <img src="/avatars/ChatGPT Image May 22, 2026, 03_09_56 AM.png" alt="Skills Avatar" className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)]" style={{ WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }} />
+            <img src="/avatars/skills-avatar.webp" alt="Skills Avatar" className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)]" style={{ WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }} />
          </motion.div>
       </div>
 
