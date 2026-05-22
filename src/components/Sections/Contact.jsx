@@ -1,32 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { SiGithub } from 'react-icons/si';
 import { FaLinkedin } from 'react-icons/fa';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const containerRef = useRef(null);
-
-  /* ── Parallax for the massive background text ── */
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end end"]
-  });
-  const yText = useTransform(scrollYProgress, [0, 1], ["60%", "-10%"]);
-  
-  /* ── Magnetic Glow Logic ── */
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const glowX = useSpring(mouseX, { stiffness: 150, damping: 20 });
-  const glowY = useSpring(mouseY, { stiffness: 150, damping: 20 });
-  const [isHoveringArea, setIsHoveringArea] = useState(false);
-
-  function handleMouseMove(e) {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  }
 
   const handleCopy = () => {
     navigator.clipboard.writeText('aymansaeed9542@gmail.com');
@@ -34,7 +12,6 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  /* ── Real-time Clock for "Futuristic HUD" feel ── */
   const [time, setTime] = useState("");
   useEffect(() => {
     const updateTime = () => {
@@ -50,165 +27,83 @@ export default function Contact() {
   }, []);
 
   return (
-    <section 
-      ref={containerRef} 
-      id="contact" 
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHoveringArea(true)}
-      onMouseLeave={() => setIsHoveringArea(false)}
-      style={{ 
-        position: 'relative', 
-        width: '100%', 
-        minHeight: '100vh', 
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        overflow: 'hidden', 
-        background: '#020202', // Very deep black
-        borderTop: '1px solid rgba(255,255,255,0.03)'
-      }}
-    >
+    <section id="contact" className="relative w-full py-24 px-4 md:px-8 max-w-7xl mx-auto flex flex-col items-center min-h-[80vh] justify-center overflow-hidden">
       
-      {/* ── Interactive Magnetic Glow Orb ── */}
-      <motion.div 
-        style={{
-          position: 'absolute',
-          top: 0, left: 0,
-          width: '400px', height: '400px',
-          background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%)',
-          borderRadius: '50%',
-          pointerEvents: 'none',
-          x: glowX, y: glowY,
-          translateX: '-50%', translateY: '-50%',
-          opacity: isHoveringArea ? 1 : 0,
-          zIndex: 0,
-          transition: 'opacity 0.5s'
-        }}
-      />
-
-      {/* ── Massive Background Typography (Parallax) ── */}
-      <motion.div 
-        style={{ 
-          position: 'absolute', 
-          top: '30%', 
-          left: '50%', 
-          transform: 'translate(-50%, -50%)', 
-          y: yText, 
-          whiteSpace: 'nowrap', 
-          pointerEvents: 'none', 
-          zIndex: 0 
-        }}
-      >
-        <h1 style={{ 
-          fontSize: 'clamp(5rem, 20vw, 25rem)', 
-          fontWeight: 900, 
-          fontFamily: 'var(--font-heading)', 
-          color: 'rgba(255,255,255,0.02)', 
-          margin: 0, 
-          textTransform: 'uppercase', 
-          letterSpacing: '-0.05em' 
-        }}>
-          HELLO
+      {/* MASSIVE BACKGROUND TEXT */}
+      <div className="absolute inset-0 flex flex-col items-center justify-start pt-[15vh] md:justify-center md:pt-0 pointer-events-none select-none z-0 opacity-10">
+        <h1 className="text-[22vw] font-black leading-[0.8] tracking-tighter text-[#8b949e] font-heading whitespace-nowrap">
+          GET IN
         </h1>
-      </motion.div>
-
-      {/* ── Main Interactive Contact Form ── */}
-      <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }} 
-          whileInView={{ opacity: 1, scale: 1 }} 
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true }}
-          style={{
-            display: 'flex', alignItems: 'center', gap: '12px',
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.05)',
-            padding: '8px 16px',
-            borderRadius: '999px',
-            backdropFilter: 'blur(10px)',
-            marginBottom: '40px'
-          }}
-        >
-          <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#34d399', boxShadow: '0 0 10px #34d399', animation: 'pulse 2s infinite' }} />
-          <span style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.15em', color: '#aaa', textTransform: 'uppercase', fontFamily: 'var(--font-body)' }}>
-            Available for new opportunities
-          </span>
-        </motion.div>
-        
-        {/* The Clickable Email "Node" */}
-        <motion.button 
-           onClick={handleCopy}
-           whileHover={{ scale: 1.05 }}
-           whileTap={{ scale: 0.95 }}
-           style={{
-             background: 'transparent', border: 'none', outline: 'none', cursor: 'none', /* Use our custom magnetic cursor */
-             position: 'relative', padding: '0 20px'
-           }}
-        >
-          <motion.div
-            animate={{
-              color: copied ? '#34d399' : '#f5f5f7',
-              textShadow: copied ? '0 0 40px rgba(52, 211, 153, 0.5)' : '0 0 0px rgba(255,255,255,0)'
-            }}
-            transition={{ duration: 0.3 }}
-            style={{
-              fontSize: 'clamp(1rem, 5.5vw, 4rem)',
-              fontWeight: 200,
-              fontFamily: 'var(--font-body)',
-              letterSpacing: '-0.02em',
-              borderBottom: '2px solid',
-              borderColor: copied ? '#34d399' : 'rgba(255,255,255,0.2)',
-              paddingBottom: '8px',
-              transition: 'border-color 0.3s'
-            }}
-          >
-            {copied ? 'COPIED TO CLIPBOARD' : 'aymansaeed9542@gmail.com'}
-          </motion.div>
-        </motion.button>
+        <h1 className="text-[22vw] font-black leading-[0.8] tracking-tighter text-[#8b949e] font-heading whitespace-nowrap">
+          TOUCH
+        </h1>
       </div>
 
-      {/* ── Futuristic HUD Footer ── */}
-      <div 
-        style={{ 
-          position: 'absolute', 
-          bottom: '0', 
-          width: '100%', 
-          padding: 'clamp(24px, 4vw, 48px)', 
-          display: 'flex', 
-          justifyContent: 'space-between', 
-          alignItems: 'flex-end', 
-          zIndex: 1,
-          borderTop: '1px solid rgba(255,255,255,0.03)'
-        }}
-      >
+      {/* HEADER WITH AVATAR HOLDING IPAD */}
+      <div className="flex flex-col items-center mb-12 relative w-full">
+         <motion.div 
+           initial={{ opacity: 0, scale: 0.9 }}
+           whileInView={{ opacity: 1, scale: 1 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.8 }}
+           className="w-full max-w-[400px] md:max-w-[500px] flex justify-center mt-10 mb-[-100px] pointer-events-none"
+         >
+            <img src="/avatars/ChatGPT Image May 22, 2026, 03_11_04 AM.png" alt="Contact Ayman" className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)]" style={{ WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }} />
+         </motion.div>
+         
+         <div className="absolute top-[60%] right-[5%] md:right-[15%] bg-[#161b22] border border-[#30363d] p-3 rounded-lg shadow-2xl backdrop-blur-md z-20">
+           <pre className="font-mono text-[10px] md:text-sm text-[#a5d6ff]">
+             <code>{'>'} system.connect()</code>
+           </pre>
+         </div>
+      </div>
+
+      {/* Main Interactive Contact Form */}
+      <div className="relative z-10 flex flex-col items-center mb-24 w-full">
+        <div className="flex items-center gap-3 px-4 py-2 rounded-full border border-[#30363d] bg-[#161b22] mb-8 shadow-xl">
+           <span className="w-2 h-2 rounded-full bg-[#3fb950] animate-pulse"></span>
+           <span className="text-xs font-mono text-[#c9d1d9] uppercase tracking-wider">
+             Available for new opportunities
+           </span>
+        </div>
+        
+        {/* The Clickable Email "Node" */}
+        <button 
+           onClick={handleCopy}
+           className="relative group focus:outline-none"
+        >
+          <div className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-light font-body tracking-tight border-b-2 border-transparent group-hover:border-[#58a6ff] pb-2 transition-all duration-300"
+               style={{ color: copied ? '#3fb950' : '#c9d1d9' }}>
+            {copied ? 'COPIED TO CLIPBOARD' : 'aymansaeed9542@gmail.com'}
+          </div>
+        </button>
+      </div>
+
+      {/* Futuristic HUD Footer */}
+      <div className="absolute bottom-0 w-full px-4 md:px-8 pb-8 pt-8 flex flex-col md:flex-row justify-between items-center md:items-end z-10 border-t border-[#30363d] mt-24">
         {/* Left Side: Socials */}
-        <div style={{ display: 'flex', gap: '24px' }}>
-          <motion.a 
-            href="https://github.com/AymanSaeed9542" target="_blank" rel="noopener noreferrer"
-            whileHover={{ color: '#fff', y: -4 }} 
-            style={{ color: '#555', transition: 'color 0.2s', cursor: 'none' }}
+        <div className="flex gap-6 mb-6 md:mb-0">
+          <a href="https://github.com/AymanSaeed9542" target="_blank" rel="noopener noreferrer"
+             className="text-[#8b949e] hover:text-white transition-colors"
           >
             <SiGithub size={24} />
-          </motion.a>
-          <motion.a 
-            href="https://linkedin.com/in/ayman-khodier" target="_blank" rel="noopener noreferrer"
-            whileHover={{ color: '#0A66C2', y: -4 }} 
-            style={{ color: '#555', transition: 'color 0.2s', cursor: 'none' }}
+          </a>
+          <a href="https://linkedin.com/in/ayman-khodier" target="_blank" rel="noopener noreferrer"
+             className="text-[#8b949e] hover:text-[#58a6ff] transition-colors"
           >
             <FaLinkedin size={24} />
-          </motion.a>
+          </a>
         </div>
         
         {/* Right Side: Local Time & Signature */}
-        <div style={{ textAlign: 'right' }}>
-          <p style={{ margin: 0, fontSize: '10px', color: '#555', fontFamily: 'var(--font-body)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+        <div className="text-center md:text-right">
+          <p className="m-0 text-[10px] text-[#8b949e] font-mono tracking-widest uppercase">
             LOCAL TIME (CAIRO)
           </p>
-          <p style={{ margin: '4px 0 12px', fontSize: '14px', color: '#bbb', fontFamily: 'var(--font-body)', fontWeight: 600, fontVariantNumeric: 'tabular-nums' }}>
+          <p className="my-1 text-sm text-[#c9d1d9] font-mono font-bold tabular-nums">
             {time}
           </p>
-          <p style={{ margin: 0, fontSize: '10px', color: '#333', fontFamily: 'var(--font-body)', letterSpacing: '0.1em' }}>
+          <p className="m-0 text-[10px] text-[#484f58] font-mono tracking-wider">
             AYMAN SAEED © 2026
           </p>
         </div>

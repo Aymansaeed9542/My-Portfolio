@@ -1,245 +1,121 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import RotatingText from '../RotatingText/RotatingText';
-import ProfileCard from '../ProfileCard/ProfileCard';
-import portfolioImage from '../../assets/avatar2.jpeg';
 
 const CV_URL = '/cv.pdf';
 const GITHUB_URL = 'https://github.com/AymanSaeed';
 
-/* ─── Shared animation config ─── */
 const EASE = [0.22, 1, 0.36, 1];
 
 export default function Hero() {
   return (
-    <>
-      <style>{`
-        @keyframes statusPulse {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
-          50%       { box-shadow: 0 0 0 5px rgba(52, 211, 153, 0); }
-        }
+    <section className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden bg-[#0D1117] pt-20">
+      
+      {/* MASSIVE BACKGROUND TEXT */}
+      <div className="absolute inset-0 flex flex-col items-center justify-start pt-[15vh] md:justify-center md:pt-0 pointer-events-none select-none z-0 opacity-10">
+        <h1 className="text-[18vw] font-black leading-[0.8] tracking-tighter text-[#8b949e] font-heading whitespace-nowrap">
+          SOFTWARE
+        </h1>
+        <h1 className="text-[18vw] font-black leading-[0.8] tracking-tighter text-[#8b949e] font-heading whitespace-nowrap">
+          ENGINEER
+        </h1>
+      </div>
 
-        .hero-spatial {
-          position: relative;
-          min-height: 100vh;
-          min-height: 100svh;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          padding: 80px 16px;
-        }
-
-        /* The stroke-only text */
-        .hero-bg-text {
-          font-size: clamp(8rem, 25vw, 25rem);
-          font-family: var(--font-heading);
-          -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
-          color: transparent;
-          margin: 0;
-          white-space: nowrap;
-          line-height: 1;
-        }
-          
-        /* Orbit elements wrapper */
-        .orbit-container {
-          position: relative;
-          z-index: 10;
-          width: clamp(240px, 40vw, 320px);
-          max-width: 100%;
-        }
-
-        @media (max-width: 1024px) {
-           .orbit-desktop { display: none !important; }
-           .orbit-mobile { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 40px; }
-           .hero-spatial { --bio-margin: 40px; --card-padding: 60px 20px; }
-           .hero-bg-text { display: none !important; }
-        }
-        @media (min-width: 1025px) {
-           .orbit-mobile { display: none !important; }
-           .orbit-desktop { display: flex; }
-        }
-      `}</style>
-
-      <section id="home" className="hero-spatial">
-
-        {/* ── MASSIVE BACKGROUND TEXT (SPATIAL) ── */}
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none', zIndex: 0, width: '100%', overflow: 'hidden' }}>
-           <motion.div 
-             animate={{ x: ['0%', '-50%'] }} 
-             transition={{ ease: 'linear', duration: 30, repeat: Infinity }}
-             style={{ display: 'flex', width: 'fit-content' }}
-           >
-             <h1 className="hero-bg-text">AYMAN SAEED AYMAN SAEED AYMAN SAEED&nbsp;</h1>
-             <h1 className="hero-bg-text">AYMAN SAEED AYMAN SAEED AYMAN SAEED&nbsp;</h1>
-           </motion.div>
-        </div>
-
-        {/* ── CENTRAL ANCHOR (Profile Card) ── */}
-        <div className="orbit-container">
-          <motion.div
-             initial={{ opacity: 0, scale: 0.8, filter: 'blur(20px)' }}
-             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-             transition={{ duration: 1.2, ease: EASE }}
-          >
-            <ProfileCard
-              avatarUrl={portfolioImage}
-              name="Ayman Saeed"
-              title="Full Stack Developer"
-              handle="aymansaeed"
-              status="Available"
-              contactText="Say Hello"
-              showUserInfo={false}
-              innerGradient="linear-gradient(145deg, rgba(20,20,20,0.95) 0%, rgba(35,35,35,0.6) 100%)"
-              behindGlowColor="rgba(80, 80, 100, 0.3)"
-              style={{ width: '100%', margin: '0 auto' }}
-            />
-          </motion.div>
-
-          {/* ── DESKTOP ORBITAL ELEMENTS ── */}
-          {/* Center Left: Status */}
-          <motion.div 
-             className="orbit-desktop"
-             initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1, ease: EASE, duration: 1 }}
-             style={{ position: 'absolute', top: '15%', right: 'calc(100% + 30px)', pointerEvents: 'none' }}
-          >
-             <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}>
-               <StatusBadge />
-             </motion.div>
-          </motion.div>
-
-          {/* Center Right: Building Text */}
-          <motion.div 
-             className="orbit-desktop"
-             initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.2, ease: EASE, duration: 1 }}
-             style={{ position: 'absolute', top: '50%', left: 'calc(100% + 40px)', transform: 'translateY(-50%)', pointerEvents: 'auto', zIndex: 20 }}
-          >
-             <motion.div animate={{ x: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}>
-               <RotatingFocus />
-             </motion.div>
-          </motion.div>
-
-          {/* Bottom Center: Action Buttons */}
-          <motion.div 
-             className="orbit-desktop"
-             initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4, ease: EASE, duration: 1 }}
-             style={{ position: 'absolute', top: 'calc(100% + 30px)', left: '50%', transform: 'translateX(-50%)', pointerEvents: 'auto', zIndex: 20 }}
-          >
-             <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 0.5 }}>
-               <ActionButtons />
-             </motion.div>
-          </motion.div>
-        </div>
-
-        {/* ── MOBILE ELEMENTS (Stack instead of Orbit) ── */}
-        <div className="orbit-mobile" style={{ zIndex: 10 }}>
-           <StatusBadge />
-           <RotatingFocus />
-           <ActionButtons />
-        </div>
-
-        {/* ── BIO TEXT ── */}
-        <motion.p
-          initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 1, delay: 1.6, ease: EASE }}
-          style={{
-            marginTop: 'var(--bio-margin, 120px)',
-            fontFamily: 'var(--font-body)',
-            fontWeight: 300,
-            fontSize: 'max(14px, 0.9vw)',
-            lineHeight: 1.8,
-            color: '#888',
-            maxWidth: '500px',
-            textAlign: 'center',
-            zIndex: 10,
-            textShadow: '0 2px 10px rgba(0,0,0,0.5)'
-          }}
+      {/* AVATAR - POP OUT */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto flex items-end justify-center h-[55vh] sm:h-[65vh] mt-10">
+        <motion.img 
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, ease: EASE }}
+          src="/avatars/hero-section-avatar.png" 
+          alt="Ayman Saeed" 
+          className="h-full object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+        />
+        
+        {/* FLOATING IDE ELEMENTS */}
+        <motion.div 
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.8, ease: EASE }}
+          className="absolute top-1/4 left-[5%] md:left-[15%] bg-[#161b22] border border-[#30363d] p-3 rounded-lg shadow-2xl backdrop-blur-md hidden sm:block"
         >
-          Senior full stack developer specialising in Next.js & Node.js — crafting fast,
-          minimalist digital experiences with pixel-perfect aesthetics.
-        </motion.p>
+          <div className="flex gap-2 mb-2">
+            <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+          </div>
+          <pre className="font-mono text-xs text-[#58a6ff]">
+            <code>const status = "Building";</code>
+          </pre>
+        </motion.div>
 
-      </section>
-    </>
+        <motion.div 
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8, ease: EASE }}
+          className="absolute bottom-1/4 right-[5%] md:right-[15%] bg-[#161b22] border border-[#30363d] px-4 py-2 rounded-lg shadow-2xl backdrop-blur-md"
+        >
+          <span className="font-mono text-sm text-[#3fb950] font-bold">
+            {'>'} System Online_
+          </span>
+        </motion.div>
+      </div>
+
+      {/* FOREGROUND TEXT AND BUTTONS */}
+      <motion.div 
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.8, ease: EASE }}
+        className="relative z-20 flex flex-col items-center mt-4 px-4 text-center mb-10"
+      >
+        <div className="flex flex-col items-center gap-2 mb-6">
+           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#161b22] border border-[#30363d] text-xs font-mono text-[#8b949e] mb-2 shadow-sm">
+             <span className="w-2 h-2 rounded-full bg-[#3fb950] animate-pulse"></span>
+             Available for work
+           </div>
+           <h2 className="text-4xl md:text-6xl flex items-center gap-1 md:gap-2">
+             <span className="text-[#484f58] font-light text-3xl md:text-5xl font-mono tracking-tighter">{'<'}</span>
+             <span 
+                className="bg-clip-text text-transparent bg-gradient-to-r from-[#58a6ff] to-[#3fb950] drop-shadow-[0_0_15px_rgba(88,166,255,0.3)]" 
+                style={{ fontFamily: '"Saira Stencil One", sans-serif', letterSpacing: '0.05em', fontWeight: 'normal' }}
+             >
+               AymanSaeed
+             </span>
+             <span className="text-[#484f58] font-light text-3xl md:text-5xl font-mono tracking-tighter">{'/>'}</span>
+           </h2>
+        </div>
+        <p className="text-sm md:text-base text-[#8b949e] font-mono max-w-lg mb-8 leading-relaxed">
+          <span className="text-[#ff7b72]">const</span> <span className="text-[#79c0ff]">role</span> = <span className="text-[#a5d6ff]">"Full Stack Developer"</span>;
+          <br/><br/>
+          <span className="text-[#8b949e] italic">// Crafting fast, minimalist digital experiences</span>
+          <br/>
+          <span className="text-[#8b949e] italic">// with Next.js, Node.js & clean architecture.</span>
+        </p>
+        <ActionButtons />
+      </motion.div>
+
+    </section>
   );
 }
 
-/* ── SMALL COMPONENTS (So they can be reused in Desktop/Mobile layouts) ── */
-
-const StatusBadge = () => (
-  <div style={{
-    display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px',
-    borderRadius: '999px', fontSize: '10px', fontFamily: 'var(--font-body)',
-    fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase',
-    color: '#888', border: '1px solid rgba(255,255,255,0.05)',
-    background: 'rgba(10,10,10,0.4)', backdropFilter: 'blur(10px)',
-    whiteSpace: 'nowrap'
-  }}>
-    <span style={{
-      width: '6px', height: '6px', borderRadius: '50%', background: '#34d399',
-      flexShrink: 0, animation: 'statusPulse 2s ease-in-out infinite',
-    }} />
-    System_Online
-  </div>
-);
-
-const RotatingFocus = () => (
-  <div style={{
-    display: 'flex', alignItems: 'center', gap: '12px',
-    background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)',
-    padding: '8px 16px', borderRadius: '16px', backdropFilter: 'blur(10px)',
-    fontFamily: 'var(--font-body)', fontWeight: 300, fontSize: '13px', color: '#666',
-    whiteSpace: 'nowrap'
-  }}>
-    <span style={{ fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Executing</span>
-    <span style={{ display: 'inline-block', width: '150px', overflow: 'hidden' }}>
-      <RotatingText
-        texts={['Full Stack Protocol', 'Next.js Interface', 'Node.js Backend', 'Modern UIs']}
-        mainClassName="text-white font-semibold tracking-wider text-[11px] uppercase whitespace-nowrap"
-        staggerFrom="last"
-        initial={{ y: '100%', opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: '-100%', opacity: 0 }}
-        staggerDuration={0.015}
-        transition={{ type: 'spring', damping: 28, stiffness: 380 }}
-        rotationInterval={2500}
-      />
-    </span>
-  </div>
-);
-
 const ActionButtons = () => {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', whiteSpace: 'nowrap' }}>
+    <div className="flex items-center gap-4">
       <motion.a
         href={CV_URL} download
-        whileHover={{ scale: 1.05, borderColor: '#666', color: '#fff', background: 'rgba(255,255,255,0.05)' }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        style={{
-          display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px',
-          borderRadius: '999px', border: '1px solid rgba(255,255,255,0.1)',
-          background: 'rgba(10,10,10,0.6)', color: '#aaa', fontFamily: 'var(--font-body)',
-          fontWeight: 400, fontSize: '12px', letterSpacing: '0.05em', textDecoration: 'none',
-          backdropFilter: 'blur(10px)', transition: 'all 0.3s'
-        }}
+        className="px-6 py-3 rounded-md bg-[#238636] hover:bg-[#2ea043] text-white font-body font-medium text-sm transition-colors shadow-lg border border-[rgba(255,255,255,0.1)]"
       >
-        Download_Core
+        Download CV
       </motion.a>
       <motion.a
         href={GITHUB_URL} target="_blank" rel="noopener noreferrer"
         aria-label="GitHub Profile"
-        whileHover={{ scale: 1.05, borderColor: '#666', color: '#fff', background: 'rgba(255,255,255,0.05)' }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        style={{
-          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-          width: '42px', height: '42px', borderRadius: '50%', flexShrink: 0,
-          border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(10,10,10,0.6)',
-          color: '#aaa', textDecoration: 'none', backdropFilter: 'blur(10px)', transition: 'all 0.3s'
-        }}
+        className="flex items-center justify-center w-12 h-12 rounded-md bg-[#21262d] hover:bg-[#30363d] border border-[#363b42] text-[#c9d1d9] transition-colors shadow-lg"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12"/>
         </svg>
       </motion.a>

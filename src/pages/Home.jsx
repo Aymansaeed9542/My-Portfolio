@@ -5,30 +5,21 @@ import About from '../components/Sections/About';
 import Projects from '../components/Sections/Projects';
 import Skills from '../components/Sections/Skills';
 import Contact from '../components/Sections/Contact';
-import DarkVeil from '../components/DarkVeil/DarkVeil';
 import RevealOnScroll from '../components/RevealOnScroll/RevealOnScroll';
+import Preloader from '../components/Preloader/Preloader';
+import Footer from '../components/Footer/Footer';
+import Dock from '../components/Dock/Dock';
 import Cursor from '../components/Cursor/Cursor';
-import FilmGrain from '../components/FilmGrain/FilmGrain';
 
 export default function Home() {
     return (
-        <main className="relative min-h-screen w-full flex flex-col items-center bg-[#050505] pb-32">
+        <main id="home" className="relative min-h-screen w-full flex flex-col items-center bg-[#0D1117]">
+            <Preloader />
             <Cursor />
-            <FilmGrain />
-            {/* DarkVeil background */}
-            <div className="fixed inset-0 z-[-1] opacity-30 grayscale-[100%] saturate-0 contrast-125">
-                <DarkVeil
-                    hueShift={0}
-                    noiseIntensity={0.02}
-                    scanlineIntensity={0.1}
-                    speed={0.1}
-                    scanlineFrequency={40}
-                    warpAmount={0.02}
-                />
-            </div>
+            <Dock />
 
             {/* 1. Hero — Full screen width without bounding box */}
-            <div className="w-full z-10 relative">
+            <div className="w-full z-10 relative bg-[#0D1117]">
                 <Hero />
             </div>
 
@@ -69,6 +60,9 @@ export default function Home() {
                 </div>
 
             </div>
+
+            {/* 7. Footer */}
+            <Footer />
         </main>
     );
 }

@@ -1,198 +1,88 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { SiReact, SiNextdotjs, SiNodedotjs, SiGit } from 'react-icons/si';
-import { FaLaptopCode, FaGlobeAfrica, FaUniversity } from 'react-icons/fa';
-import SectionLabel from '../SectionLabel/SectionLabel';
-
-/* ─────────────────────────────────────────────────────────
-   ScrollStackCard
-   Each card sticks as you scroll, and the previous card
-   scales down slightly creating a depth-stacking effect.
-   ───────────────────────────────────────────────────────── */
-function ScrollStackCard({ children, index, total }) {
-  const ref = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-
-  /* Card scales down as you scroll past it (only for non-last cards) */
-  const isLast = index === total - 1;
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.4, 0.7, 1],
-    isLast ? [0.94, 1, 1, 1] : [0.94, 1, 0.92, 0.88]
-  );
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.25, 0.8, 1],
-    isLast ? [0, 1, 1, 1] : [0, 1, 1, 0.5]
-  );
-  const y = useTransform(scrollYProgress, [0, 0.25], [60, 0]);
-
-  /* All cards stick at the exact same position so they perfectly overlap */
-  const stickyTop = 100;
-
-  return (
-    <div
-      ref={ref}
-      style={{
-        position: 'sticky',
-        top: `${stickyTop}px`,
-        marginBottom: '16px',
-        zIndex: index + 1,
-        /* Each card needs enough scroll room to trigger the effect */
-        height: 'auto',
-      }}
-    >
-      <motion.div
-        style={{ scale, opacity, y }}
-        transition={{ type: 'spring', stiffness: 260, damping: 28 }}
-      >
-        <div
-          style={{
-            borderRadius: '24px',
-            background: '#0c0c0c',
-            border: '1px solid #1c1c1c',
-            padding: '28px 32px',
-            overflow: 'hidden',
-            position: 'relative',
-            minHeight: '160px',
-            /* Subtle top tint so stacked cards feel layered */
-            boxShadow: `0 -1px 0 rgba(255,255,255,0.03), 0 24px 60px rgba(0,0,0,0.5)`,
-          }}
-        >
-          {children}
-        </div>
-      </motion.div>
-    </div>
-  );
-}
-
-/* ─── Card contents ─── */
-const CARDS = [
-  {
-    id: 'bio',
-    render: () => (
-      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '16px', height: '100%' }}>
-        <div>
-          <h3 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 100, color: '#f0f0f0', marginBottom: '8px', lineHeight: 1.2, fontFamily: 'var(--font-heading)' }}>
-            DEVELOPER<br />BY NATURE.
-          </h3>
-          <p style={{ color: '#555', fontSize: '13px', lineHeight: 1.75, fontFamily: 'var(--font-body)', maxWidth: '400px' }}>
-            Full stack developer building fast, beautiful, and intuitive web apps — always learning, always shipping.
-          </p>
-        </div>
-        <FaLaptopCode size={56} color="#1c1c1c" style={{ flexShrink: 0 }} />
-      </div>
-    ),
-  },
-  {
-    id: 'location',
-    render: () => (
-      <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-        <div style={{
-          width: '56px', height: '56px', borderRadius: '16px',
-          background: '#111', border: '1px solid #1e1e1e',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-        }}>
-          <FaGlobeAfrica size={28} color="#333" />
-        </div>
-        <div>
-          <p style={{ fontSize: '10px', color: '#333', letterSpacing: '0.25em', textTransform: 'uppercase', fontWeight: 600, marginBottom: '4px', fontFamily: 'var(--font-body)' }}>Location</p>
-          <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', fontWeight: 300, color: '#fff', fontFamily: 'var(--font-heading)', lineHeight: 1 }}>
-            EGYPT
-          </h3>
-          <p style={{ color: '#333', fontSize: '12px', marginTop: '6px', fontFamily: 'var(--font-body)' }}>Open to remote worldwide</p>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 'education',
-    render: () => (
-      <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-        <div style={{
-          width: '56px', height: '56px', borderRadius: '16px',
-          background: '#111', border: '1px solid #1e1e1e',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-        }}>
-          <FaUniversity size={26} color="#333" />
-        </div>
-        <div>
-          <p style={{ fontSize: '10px', color: '#333', letterSpacing: '0.25em', textTransform: 'uppercase', fontWeight: 600, marginBottom: '4px', fontFamily: 'var(--font-body)' }}>Education</p>
-          <h3 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', fontWeight: 300, color: '#fff', fontFamily: 'var(--font-heading)', lineHeight: 1 }}>
-            CS STUDENT
-          </h3>
-          <p style={{ color: '#333', fontSize: '12px', marginTop: '6px', fontFamily: 'var(--font-body)' }}>Always building on the side</p>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 'stack',
-    render: () => (
-      <div>
-        <p style={{ fontSize: '10px', color: '#333', letterSpacing: '0.25em', textTransform: 'uppercase', fontWeight: 600, marginBottom: '16px', fontFamily: 'var(--font-body)' }}>
-          Core Stack
-        </p>
-        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-          {[
-            { Icon: SiReact,    label: 'React',   color: '#61DAFB' },
-            { Icon: SiNextdotjs, label: 'Next.js', color: '#ffffff' },
-            { Icon: SiNodedotjs, label: 'Node.js', color: '#6DA55F' },
-            { Icon: SiGit,      label: 'Git',     color: '#F05032' },
-          ].map(({ Icon, label, color }) => (
-            <motion.span
-              key={label}
-              whileHover={{ borderColor: color, color, scale: 1.05 }}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '7px',
-                padding: '8px 14px', borderRadius: '999px',
-                border: '1px solid #1e1e1e', background: '#0d0d0d',
-                color: '#3a3a3a', fontSize: '13px',
-                fontFamily: 'var(--font-body)', fontWeight: 500,
-                transition: 'color 0.2s, border-color 0.2s',
-                cursor: 'default',
-              }}
-            >
-              <Icon size={15} />
-              {label}
-            </motion.span>
-          ))}
-        </div>
-      </div>
-    ),
-  },
-];
+import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <section
-      id="about"
-      style={{
-        width: '100%',
-        paddingTop: '80px',
-        paddingBottom: '40px',
-        paddingLeft: 'clamp(16px, 4vw, 32px)',
-        paddingRight: 'clamp(16px, 4vw, 32px)',
-        position: 'relative',
-        zIndex: 10,
-      }}
-    >
-      <div style={{ maxWidth: '860px', margin: '0 auto' }}>
-        <SectionLabel label="About Me" />
+    <section id="about" className="relative w-full py-24 px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      
+      {/* LEFT: AVATAR pointing right */}
+      <motion.div 
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+        className="w-full md:w-1/2 flex justify-center md:justify-end relative"
+      >
+        {/* BACKGROUND EFFECTS */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] z-0 pointer-events-none">
+           {/* Glowing Blob */}
+           <div className="absolute inset-0 bg-[#58a6ff]/10 blur-[60px] rounded-full"></div>
+           
+           {/* Orbiting Code Symbols */}
+           <motion.div 
+             animate={{ rotate: 360 }}
+             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+             className="absolute inset-0 rounded-full flex items-center justify-center"
+           >
+              <div className="absolute -top-4 text-[#58a6ff] opacity-50 font-mono text-3xl font-bold tracking-widest">{"{ }"}</div>
+              <div className="absolute -bottom-4 text-[#3fb950] opacity-50 font-mono text-3xl font-bold tracking-widest">{"< />"}</div>
+              <div className="absolute -left-4 text-[#ff7b72] opacity-50 font-mono text-3xl font-bold tracking-widest">{"[ ]"}</div>
+              <div className="absolute -right-4 text-[#a5d6ff] opacity-50 font-mono text-3xl font-bold tracking-widest">{"();"}</div>
+           </motion.div>
 
-        {/* Scroll Stack — each card stacks on top of the previous */}
-        <div style={{ position: 'relative' }}>
-          {CARDS.map((card, i) => (
-            <ScrollStackCard key={card.id} index={i} total={CARDS.length}>
-              {card.render()}
-            </ScrollStackCard>
-          ))}
+           {/* Orbiting Tech Words */}
+           <motion.div 
+             animate={{ rotate: -360 }}
+             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+             className="absolute inset-10 rounded-full flex items-center justify-center"
+           >
+              <div className="absolute -top-2 text-[#8b949e] opacity-30 font-mono text-sm font-bold">const</div>
+              <div className="absolute -bottom-2 text-[#8b949e] opacity-30 font-mono text-sm font-bold">await</div>
+              <div className="absolute -left-2 text-[#8b949e] opacity-30 font-mono text-sm font-bold">return</div>
+              <div className="absolute -right-2 text-[#8b949e] opacity-30 font-mono text-sm font-bold">import</div>
+           </motion.div>
         </div>
-      </div>
+
+        <img 
+          src="/avatars/about-avatar.png" 
+          alt="About Ayman" 
+          className="relative z-10 max-w-[300px] md:max-w-[400px] drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+        />
+      </motion.div>
+
+      {/* RIGHT: TEXT Terminal / IDE style */}
+      <motion.div 
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+        className="w-full md:w-1/2 bg-[#161b22] border border-[#30363d] rounded-xl p-6 md:p-8 shadow-2xl relative"
+      >
+        <div className="absolute top-0 left-0 w-full bg-[#0d1117] rounded-t-xl border-b border-[#30363d] px-4 py-3 flex items-center gap-2">
+           <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+           <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+           <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+           <span className="ml-3 text-xs font-mono text-[#8b949e]">about.md</span>
+        </div>
+
+        <div className="mt-10 font-mono text-[13px] md:text-sm leading-relaxed text-[#c9d1d9]">
+           <p className="mb-4">
+             <span className="text-[#ff7b72]">##</span> <span className="text-[#a5d6ff]">Developer by Nature</span>
+           </p>
+           <p className="mb-4">
+             I am a <span className="text-[#79c0ff]">Full Stack Developer</span> building fast, beautiful, and intuitive web apps. 
+             Currently based in <span className="text-[#3fb950]">Egypt</span>, but open to remote opportunities worldwide.
+           </p>
+           <p className="mb-4">
+             <span className="text-[#ff7b72]">-</span> Education: <span className="text-[#d2a8ff]">Computer Science</span>
+             <br/>
+             <span className="text-[#ff7b72]">-</span> Focus: <span className="text-[#d2a8ff]">Clean Architecture, Performance, UX</span>
+           </p>
+           <p className="mt-8 pt-4 border-t border-[#30363d]">
+             <span className="text-[#8b949e] italic">// Always learning, always shipping.</span>
+           </p>
+        </div>
+      </motion.div>
     </section>
   );
 }

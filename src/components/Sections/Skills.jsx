@@ -67,12 +67,12 @@ function SkillPill({ Icon, label, color }) {
         gap: '8px',
         padding: '8px 18px',
         borderRadius: '999px',
-        border: '1px solid #1a1a1a',
-        background: '#080808',
+        border: '1px solid #30363d',
+        background: '#161b22',
         fontSize: '13px',
-        fontFamily: 'var(--font-body)',
+        fontFamily: 'var(--font-mono)',
         fontWeight: 400,
-        color: '#888', // subtle gray default
+        color: '#8b949e', // subtle gray default
         cursor: 'default',
         transition: 'color 0.2s, border-color 0.2s',
       }}
@@ -90,17 +90,34 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      style={{
-        width: '100%',
-        paddingTop: '100px',
-        paddingBottom: '120px',
-        position: 'relative',
-        zIndex: 10,
-      }}
+      className="relative w-full pt-24 pb-32 overflow-hidden flex flex-col items-center z-10"
     >
-      <div style={{ maxWidth: '1100px', margin: '0 auto', paddingLeft: 'clamp(16px, 5vw, 64px)', paddingRight: 'clamp(16px, 5vw, 64px)' }}>
+      {/* MASSIVE BACKGROUND TEXT */}
+      <div className="absolute inset-0 flex flex-col items-center justify-start mt-20 pointer-events-none select-none z-0 opacity-10">
+        <h1 className="text-[20vw] font-black leading-[0.8] tracking-tighter text-[#8b949e] font-heading whitespace-nowrap">
+          TECH
+        </h1>
+        <h1 className="text-[20vw] font-black leading-[0.8] tracking-tighter text-[#8b949e] font-heading whitespace-nowrap">
+          STACK
+        </h1>
+      </div>
+
+      {/* HEADER WITH AVATAR */}
+      <div className="flex flex-col items-center mb-16 relative z-10 w-full mt-10">
+         <motion.div 
+           initial={{ opacity: 0, y: -50 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.8 }}
+           className="w-full max-w-[400px] md:max-w-[450px] mb-6 flex justify-center"
+         >
+            <img src="/avatars/ChatGPT Image May 22, 2026, 03_09_56 AM.png" alt="Skills Avatar" className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)]" style={{ WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }} />
+         </motion.div>
+      </div>
+
+      <div className="max-w-[1100px] w-full mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
         
-        <div style={{ marginBottom: '40px' }}>
+        <div className="mb-10">
           <SectionLabel label="Expertise" />
         </div>
 
@@ -114,7 +131,7 @@ export default function Skills() {
                 onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => setActiveIndex(index)}
                 style={{
-                  borderBottom: '1px solid #1c1c1c',
+                  borderBottom: '1px solid #30363d',
                   padding: 'clamp(24px, 4vw, 40px) 0',
                   cursor: 'pointer',
                   display: 'flex',
@@ -124,7 +141,7 @@ export default function Skills() {
                 {/* ── Large Typography Header ── */}
                 <motion.h2
                   animate={{
-                    color: isActive ? '#f5f5f7' : '#2a2a2a',
+                    color: isActive ? '#c9d1d9' : '#484f58',
                     x: isActive ? 10 : 0, // slight slide indicating focus
                   }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
